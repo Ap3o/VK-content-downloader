@@ -10,7 +10,11 @@ resolutions = ["64b", "128b", "256b", "512b"]
 
 while start <= end:
     p = requests.get("https://vk.com/sticker/1-{0}-{1}-9".format(start, resolutions[resolution]))
-    out = open("stickers/" + str(start) + ".png", "wb")
+    if p.status_code == 404:
+        print(str(start) + " skip. Have an error")
+        start += 1
+        continue
+    out = open("stickers/" + str(start) + "-{0}.png".format(resolutions[resolution]), "wb")
     out.write(p.content)
     out.close()
     print(str(start) + " downloaded")
