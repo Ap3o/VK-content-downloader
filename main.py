@@ -10,7 +10,7 @@ resolutions = ["64b", "128b", "256b", "512b"]
 
 errors = 0
 
-while start <= end or errors != 1000:
+while (start <= end) and (errors != 1000):
     p = requests.get("https://vk.com/sticker/1-{0}-{1}-9".format(start, resolutions[resolution - 1]))
     if p.status_code == 404:
         print(str(start) + " skip. Have an error")
@@ -23,5 +23,5 @@ while start <= end or errors != 1000:
     print(str(start) + " downloaded")
     start += 1
 
-print("Скачано стикеров", end - start, sep=' ')
-print("Ошибок при скачивании:", errors, sep='')
+print("Скачано стикеров:", end - start, sep=' ')
+print("Ошибок при скачивании:", errors, sep=' ')
