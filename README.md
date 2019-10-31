@@ -1,2 +1,2 @@
-# Stickers-downloader
-Sticker Downloader for vk.com
+# VK-content-sticker
+Content Downloader for vk.com
